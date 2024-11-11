@@ -1,12 +1,17 @@
 import { useState } from 'react';
 
 export default function FeedbackForm() {
-  const [name, setName] = useState('');
+
+  let name = '';
 
   function handleClick() {
-    setName(prompt('¿Cuál es tu nombre?'));
+    name = (prompt('¿Cuál es tu nombre?'));
     alert(`Hola, ${name}!`);
   }
+
+  /*
+  Es innecesario usar el estado aqui para el name porque no se va a actualizar el DOM de manera reactiva. El valor del name se va a perder cuando se recargue la página.
+  */
 
   return (
     <button onClick={handleClick}>
